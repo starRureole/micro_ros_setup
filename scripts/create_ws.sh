@@ -38,12 +38,11 @@ if [ -f ros2.repos ]
 then
     echo "Repo-file ros2.repos already present, overwriting!"
 fi
-
+git config --global url."https://ghproxy.com/https://github.com/".insteadOf https://github.com/
 # ROS_DISTRO SPECIFIC
-wget https://github.com/starRureole/ros2/blob/humble/ros2.repos |\
+curl -s https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos |\
     ros2 run micro_ros_setup yaml_filter.py ${PACKAGES} > ros2.repos
 vcs import --input ros2.repos --skip-existing
 vcs import --input $REPOS --skip-existing
 
 popd >/dev/null
-

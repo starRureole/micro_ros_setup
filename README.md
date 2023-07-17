@@ -139,7 +139,7 @@ ros2 run micro_ros_setup create_firmware_ws.sh freertos olimex-stm32-e407
 # Creating a Zephyr + micro-ROS firmware workspace
 ros2 run micro_ros_setup create_firmware_ws.sh zephyr olimex-stm32-e407
 ```
-
+# docker run -it --rm -v $(pwd):/project -v /home/stars/microros_ws/install/micro_ros_setup/lib/micro_ros_setup:/uros_ws/install/micro_ros_setup/lib/micro_ros_setup  --env MICROROS_LIBRARY_FOLDER=extras microros/micro_ros_static_library_builder:humble -p cortex_m4
 ## Configuring micro-ROS firmware
 
 By running `configure_firmware.sh` command the installed firmware is configured and modified in a pre-build step. This command will show its usage if parameters are not provided:
